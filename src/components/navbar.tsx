@@ -26,7 +26,7 @@ export function Navbar() {
             <span className="grid h-9 w-9 place-items-center rounded-[11px] bg-[#2f9479] text-white shadow-[0_8px_18px_-9px_#2f9479]">
               <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
             </span>
-            <span className="text-[1.45rem] font-semibold tracking-[-0.055em] text-[#102640]">
+            <span className="text-[1.45rem] font-semibold tracking-[-0.055em] text-[#18221f]">
               DVerif
             </span>
           </Link>
@@ -51,8 +51,8 @@ export function Navbar() {
               Sign in
             </a>
             <RequestAccessModal>
-              <button className="hidden h-10 items-center gap-2 rounded-[9px] bg-[#142d48] px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 sm:inline-flex">
-                Get started <ArrowUpRight className="h-4 w-4" />
+              <button className="hidden h-10 items-center gap-2 rounded-[9px] bg-[#1f6e54] px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 sm:inline-flex">
+                Try for free <ArrowUpRight className="h-4 w-4" />
               </button>
             </RequestAccessModal>
             <button
@@ -87,8 +87,8 @@ export function Navbar() {
               Sign in
             </a>
             <RequestAccessModal>
-              <button className="mt-2 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-[#142d48] text-sm font-semibold text-white">
-                Get started <ArrowUpRight className="h-4 w-4" />
+              <button className="mt-2 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-[#1f6e54] text-sm font-semibold text-white">
+                Try for free <ArrowUpRight className="h-4 w-4" />
               </button>
             </RequestAccessModal>
           </div>

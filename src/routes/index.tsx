@@ -125,91 +125,49 @@ function Hero() {
 function HeroProductVisual() {
   return (
     <div className="relative animate-fade-in-soft lg:pl-4">
-      <div className="absolute -right-8 top-0 h-64 w-64 rounded-full bg-[#dcece3]/80 blur-3xl" />
+      <div className="absolute -right-10 top-6 h-72 w-72 rounded-full bg-[#d8ebcf] blur-3xl" />
       <div className="relative mx-auto max-w-[650px]">
-        <div className="absolute -right-2 -top-10 hidden rotate-[7deg] font-serif text-2xl italic leading-7 text-[#77948a] sm:block">
-          Verified people
+        <div className="absolute -right-2 -top-12 hidden rotate-[6deg] font-serif text-2xl italic leading-7 text-[#6b8c70] sm:block">
+          People first,
           <br />
-          build stronger
-          <br />
-          organizations
+          records trusted.
         </div>
-        <div className="relative overflow-hidden rounded-[17px] border border-[#d6dedb] bg-white shadow-[0_32px_70px_-35px_rgba(26,54,65,.34)]">
-          <div className="flex h-10 items-center gap-1.5 border-b border-[#e6ebe8] bg-[#fbfcfb] px-4">
-            <span className="h-2.5 w-2.5 rounded-full bg-[#ef8f83]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#f0c86e]" />
-            <span className="h-2.5 w-2.5 rounded-full bg-[#72bf9a]" />
-            <span className="ml-3 inline-flex items-center gap-1.5 text-[10px] font-semibold text-[#527067]">
-              <ShieldCheck className="h-3 w-3" /> DVerif
+        <div className="relative overflow-hidden rounded-[24px] border border-[#d7ddcd] bg-white p-2 shadow-[0_34px_80px_-38px_rgba(34,67,52,.42)] sm:p-3">
+          <div className="flex h-9 items-center gap-1.5 rounded-t-[16px] border-b border-[#e7eadf] bg-[#fbfcf8] px-3">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#e99a8d]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#e8c76f]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#79bd8b]" />
+            <span className="ml-3 text-[10px] font-semibold text-[#5c7864]">
+              DVerif · Verification workspace
             </span>
           </div>
-          <div className="grid gap-5 p-5 sm:grid-cols-[1fr_180px] sm:p-7">
-            <div className="rounded-xl border border-[#e0e8e4] bg-white p-5 shadow-sm">
-              <div className="flex items-center justify-between">
-                <div className="text-sm font-semibold text-[#203449]">Academic Certificate</div>
-                <QrCode className="h-10 w-10 text-[#132c47]" />
-              </div>
-              <div className="mt-5 grid grid-cols-[95px_1fr] gap-y-2 text-[10px]">
-                <span className="text-[#98a19f]">Student Name</span>
-                <span className="font-medium text-[#44535b]">Ayesha Khan</span>
-                <span className="text-[#98a19f]">Degree</span>
-                <span className="font-medium text-[#44535b]">Bachelor of Computer Science</span>
-                <span className="text-[#98a19f]">Institution</span>
-                <span className="font-medium text-[#44535b]">National University</span>
-                <span className="text-[#98a19f]">Certificate ID</span>
-                <span className="font-medium text-[#44535b]">NU-BCS-2023-4587</span>
-              </div>
-              <div className="mt-5 flex items-center gap-3 rounded-lg bg-[#eaf5ee] p-3">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-[#46a27f] text-white">
-                  <BadgeCheck className="h-5 w-5" />
-                </span>
-                <div>
-                  <p className="text-xs font-semibold text-[#267059]">Certificate verified</p>
-                  <p className="mt-0.5 text-[10px] text-[#668277]">
-                    This document is authentic and has not been altered.
-                  </p>
-                </div>
-              </div>
-              <div className="mt-4 flex items-center gap-2 border-t border-[#edf0ed] pt-3 text-[10px] text-[#6b7775]">
-                <ShieldCheck className="h-4 w-4 text-[#438d76]" /> Verified by DVerif · 12 Jun 2023,
-                10:24 AM PKT
-              </div>
-            </div>
-            <div className="rounded-xl border border-[#e0e8e4] bg-[#fbfdfb] p-4 shadow-sm sm:mt-8">
+          <div className="relative overflow-hidden rounded-b-[16px] bg-[#f2f5ed] p-3 sm:p-5">
+            <img
+              src="/assets/verification-request.jpeg"
+              alt="DVerif document verification request interface"
+              className="h-auto w-full rounded-xl border border-[#dfe6d9] bg-white object-cover object-top shadow-[0_18px_35px_-24px_rgba(32,63,48,.4)]"
+            />
+            <div className="absolute -bottom-2 right-3 w-[46%] rounded-2xl border border-[#d9e5d5] bg-white/95 p-3 shadow-[0_20px_38px_-24px_rgba(31,75,52,.48)] backdrop-blur sm:right-7 sm:w-[42%] sm:p-4">
               <div className="flex items-center gap-2">
-                <span className="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0f1] text-xs font-semibold text-[#2c5965]">
+                <span className="grid h-8 w-8 place-items-center rounded-full bg-[#dff0df] text-xs font-bold text-[#2f7451]">
                   AK
                 </span>
                 <div>
-                  <p className="text-xs font-semibold text-[#253c4e]">Ayesha Khan</p>
-                  <p className="text-[9px] text-[#87928f]">Employee ID · EMP-1042</p>
+                  <p className="text-[11px] font-semibold text-[#263d31]">Ayesha Khan</p>
+                  <p className="text-[9px] text-[#7c8b80]">Employee record</p>
                 </div>
               </div>
-              <div className="mt-4 space-y-2.5 text-[10px] text-[#5e6a68]">
-                <div className="flex justify-between">
-                  <span>Department</span>
-                  <span className="font-medium text-[#344a57]">Product</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Position</span>
-                  <span className="font-medium text-[#344a57]">Product Manager</span>
-                </div>
-                <div className="flex justify-between">
-                  <span>Status</span>
-                  <span className="rounded-full bg-[#e2f2e8] px-2 py-0.5 font-medium text-[#398364]">
-                    Active
-                  </span>
-                </div>
-              </div>
-              <div className="mt-5 space-y-3 border-t border-[#e5ebe8] pt-4 text-[10px] text-[#5b6d6b]">
-                <span className="block">⌁ Personal information</span>
-                <span className="block">▧ Documents (4)</span>
-                <span className="block">◷ Attendance</span>
-                <span className="block">⌕ Leave</span>
-                <span className="block">▤ Payroll</span>
+              <div className="mt-3 flex items-center justify-between border-t border-[#ecf0e8] pt-3">
+                <span className="text-[10px] text-[#7c8b80]">Verification status</span>
+                <span className="rounded-full bg-[#e1f1df] px-2 py-1 text-[9px] font-semibold text-[#347553]">
+                  Verified
+                </span>
               </div>
             </div>
           </div>
+        </div>
+        <div className="absolute -bottom-8 -left-5 hidden items-center gap-2 rounded-full border border-[#d8e6d4] bg-white px-4 py-2 text-xs font-semibold text-[#397357] shadow-[0_14px_28px_-20px_rgba(31,74,52,.5)] sm:flex">
+          <ShieldCheck className="h-4 w-4" /> Secure, organized, ready to verify
         </div>
       </div>
     </div>
