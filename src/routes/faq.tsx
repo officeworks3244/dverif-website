@@ -2,26 +2,91 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site-layout";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { ArrowUpRight, Search, HelpCircle, Shield, Users, FileCheck, Clock, DollarSign, Globe, CreditCard, Lock, HeadphonesIcon, FileText, BarChart, LayoutDashboard, Calendar } from "lucide-react";
+import {
+  ArrowUpRight,
+  Search,
+  HelpCircle,
+  Shield,
+  Users,
+  FileCheck,
+  Clock,
+  DollarSign,
+  Globe,
+  CreditCard,
+  Lock,
+  HeadphonesIcon,
+  FileText,
+  BarChart,
+  LayoutDashboard,
+  Calendar,
+} from "lucide-react";
 import { useState, useMemo } from "react";
 import {
-  Accordion, AccordionContent, AccordionItem, AccordionTrigger,
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
 } from "@/components/ui/accordion";
 import { LEGAL_CONFIG } from "@/config/legal";
 
 const FAQ_CATEGORIES = [
   { id: "All", label: "All", icon: HelpCircle, description: "All questions" },
   { id: "General", label: "General", icon: HelpCircle, description: "Getting started with Dverif" },
-  { id: "Account & Security", label: "Account & Security", icon: Shield, description: "Keep your Dverif account and organization secure" },
-  { id: "Verification", label: "Verification", icon: FileCheck, description: "Document verification services and workflows" },
-  { id: "Employees & Teams", label: "Employees & Teams", icon: Users, description: "Team and employee management" },
-  { id: "Attendance & Leave", label: "Attendance & Leave", icon: Calendar, description: "Attendance tracking and leave management" },
-  { id: "Payroll & Salary", label: "Payroll & Salary", icon: DollarSign, description: "Salary and payroll features" },
-  { id: "Documents", label: "Documents", icon: FileText, description: "Document management and review" },
-  { id: "Dashboard & Analytics", label: "Dashboard & Analytics", icon: BarChart, description: "Dashboard and insights" },
-  { id: "Templates & Requests", label: "Templates & Requests", icon: LayoutDashboard, description: "Custom templates and requests" },
+  {
+    id: "Account & Security",
+    label: "Account & Security",
+    icon: Shield,
+    description: "Keep your Dverif account and organization secure",
+  },
+  {
+    id: "Verification",
+    label: "Verification",
+    icon: FileCheck,
+    description: "Document verification services and workflows",
+  },
+  {
+    id: "Employees & Teams",
+    label: "Employees & Teams",
+    icon: Users,
+    description: "Team and employee management",
+  },
+  {
+    id: "Attendance & Leave",
+    label: "Attendance & Leave",
+    icon: Calendar,
+    description: "Attendance tracking and leave management",
+  },
+  {
+    id: "Payroll & Salary",
+    label: "Payroll & Salary",
+    icon: DollarSign,
+    description: "Salary and payroll features",
+  },
+  {
+    id: "Documents",
+    label: "Documents",
+    icon: FileText,
+    description: "Document management and review",
+  },
+  {
+    id: "Dashboard & Analytics",
+    label: "Dashboard & Analytics",
+    icon: BarChart,
+    description: "Dashboard and insights",
+  },
+  {
+    id: "Templates & Requests",
+    label: "Templates & Requests",
+    icon: LayoutDashboard,
+    description: "Custom templates and requests",
+  },
   { id: "Languages", label: "Languages", icon: Globe, description: "Language support" },
-  { id: "Payments & Subscriptions", label: "Payments & Subscriptions", icon: CreditCard, description: "Plans and billing" },
+  {
+    id: "Payments & Subscriptions",
+    label: "Payments & Subscriptions",
+    icon: CreditCard,
+    description: "Plans and billing",
+  },
   { id: "Privacy", label: "Privacy", icon: Lock, description: "Privacy and data protection" },
   { id: "Support", label: "Support", icon: HeadphonesIcon, description: "Help and support" },
 ] as const;
@@ -213,35 +278,58 @@ export const Route = createFileRoute("/faq")({
   head: () => ({
     meta: [
       { title: "Dverif FAQ | Document Verification, Employee, Attendance & Payroll Questions" },
-      { name: "description", content: "Get answers to common Dverif questions about document verification, employee management, attendance tracking, leave management, payroll, security, pricing, and account support." },
-      { name: "keywords", content: "document verification FAQ, verification questions, Dverif FAQ, document verification help, verification process, secure verification questions, employee management questions, attendance tracking questions, payroll questions" },
-      { property: "og:title", content: "Dverif FAQ — Document Verification & Organization Management" },
-      { property: "og:description", content: "Get answers to common questions about Dverif verification, employee management, attendance, payroll, security, and more." },
+      {
+        name: "description",
+        content:
+          "Get answers to common Dverif questions about document verification, employee management, attendance tracking, leave management, payroll, security, pricing, and account support.",
+      },
+      {
+        name: "keywords",
+        content:
+          "document verification FAQ, verification questions, Dverif FAQ, document verification help, verification process, secure verification questions, employee management questions, attendance tracking questions, payroll questions",
+      },
+      {
+        property: "og:title",
+        content: "Dverif FAQ — Document Verification & Organization Management",
+      },
+      {
+        property: "og:description",
+        content:
+          "Get answers to common questions about Dverif verification, employee management, attendance, payroll, security, and more.",
+      },
       { property: "og:url", content: "https://dverif.com/faq" },
       { property: "og:image", content: "https://dverif.com/assets/logo-light.png" },
       { property: "og:type", content: "website" },
       { property: "og:locale", content: "en_US" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: "Dverif FAQ — Document Verification & Organization Management" },
-      { name: "twitter:description", content: "Get answers to common questions about Dverif verification, employee management, attendance, payroll, security, and more." },
+      {
+        name: "twitter:title",
+        content: "Dverif FAQ — Document Verification & Organization Management",
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Get answers to common questions about Dverif verification, employee management, attendance, payroll, security, and more.",
+      },
       { name: "twitter:image", content: "https://dverif.com/assets/logo-light.png" },
     ],
-    links: [
-      { rel: "canonical", href: "https://dverif.com/faq" },
-    ],
+    links: [{ rel: "canonical", href: "https://dverif.com/faq" }],
     scripts: [
       {
         type: "application/ld+json",
         innerHTML: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "FAQPage",
-          "mainEntity": FAQ_ITEMS.map((item) => ({
+          mainEntity: FAQ_ITEMS.map((item) => ({
             "@type": "Question",
-            "name": item.q,
-            "acceptedAnswer": {
+            name: item.q,
+            acceptedAnswer: {
               "@type": "Answer",
-              "text": item.a,
+              text: item.a,
             },
           })),
         }),
@@ -257,20 +345,18 @@ function FaqPage() {
 
   const filteredFAQs = useMemo(() => {
     return FAQ_ITEMS.filter((item) => {
-      const matchesSearch = 
-        searchQuery === "" || 
+      const matchesSearch =
+        searchQuery === "" ||
         item.q.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.a.toLowerCase().includes(searchQuery.toLowerCase());
-      
-      const matchesCategory = 
-        selectedCategory === "All" || 
-        item.category === selectedCategory;
-      
+
+      const matchesCategory = selectedCategory === "All" || item.category === selectedCategory;
+
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory]);
 
-  const selectedCategoryData = FAQ_CATEGORIES.find(cat => cat.id === selectedCategory);
+  const selectedCategoryData = FAQ_CATEGORIES.find((cat) => cat.id === selectedCategory);
 
   return (
     <SiteLayout>
@@ -282,7 +368,8 @@ function FaqPage() {
             Frequently Asked Questions
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Everything you need to know about Dverif, verification, employee management, security, attendance, payroll, and more.
+            Everything you need to know about Dverif, verification, employee management, security,
+            attendance, payroll, and more.
           </p>
         </div>
       </section>
@@ -300,7 +387,7 @@ function FaqPage() {
                   placeholder="Search your question..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="h-14 pl-12 rounded-xl border-border/80 bg-background/70 shadow-sm focus-visible:border-[#4F8CFF] focus-visible:ring-4 focus-visible:ring-[#4F8CFF]/15 text-base"
+                  className="h-14 pl-12 rounded-xl border-border/80 bg-background/70 shadow-sm focus-visible:border-[#2f9479] focus-visible:ring-4 focus-visible:ring-[#2f9479]/15 text-base"
                 />
               </div>
             </div>
@@ -342,16 +429,20 @@ function FaqPage() {
                   <Search className="h-8 w-8" />
                 </div>
                 <h3 className="text-xl font-semibold text-foreground mb-2">No questions found</h3>
-                <p className="text-muted-foreground">Try searching with a different keyword or selecting a different category.</p>
+                <p className="text-muted-foreground">
+                  Try searching with a different keyword or selecting a different category.
+                </p>
               </div>
             ) : (
               <div className="space-y-8">
-                {FAQ_CATEGORIES.filter(cat => cat.id !== "All").map((category) => {
-                  const categoryQuestions = filteredFAQs.filter(item => item.category === category.id);
+                {FAQ_CATEGORIES.filter((cat) => cat.id !== "All").map((category) => {
+                  const categoryQuestions = filteredFAQs.filter(
+                    (item) => item.category === category.id,
+                  );
                   if (categoryQuestions.length === 0) return null;
-                  
+
                   const Icon = category.icon;
-                  
+
                   return (
                     <div key={category.id} className="space-y-4">
                       {/* Category Header */}
@@ -360,17 +451,23 @@ function FaqPage() {
                           <Icon className="h-5 w-5" />
                         </div>
                         <div>
-                          <h3 className="text-lg font-semibold text-foreground">{category.label}</h3>
+                          <h3 className="text-lg font-semibold text-foreground">
+                            {category.label}
+                          </h3>
                           <p className="text-sm text-muted-foreground">{category.description}</p>
                         </div>
                       </div>
 
                       {/* Category Questions */}
                       <div className="surface-card rounded-2xl p-3 sm:p-4">
-                        <Accordion type="single" collapsible className="w-full divide-y divide-border">
+                        <Accordion
+                          type="single"
+                          collapsible
+                          className="w-full divide-y divide-border"
+                        >
                           {categoryQuestions.map((item, index) => (
-                            <AccordionItem 
-                              key={`${category.id}-${index}`} 
+                            <AccordionItem
+                              key={`${category.id}-${index}`}
                               value={`faq-${category.id}-${index}`}
                               className="border-0"
                             >
@@ -399,7 +496,9 @@ function FaqPage() {
           <div className="surface-card relative overflow-hidden rounded-2xl p-6 sm:p-9 lg:p-12">
             <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-primary-glow to-primary" />
             <div className="mx-auto max-w-2xl text-center">
-              <h2 className="text-2xl font-bold tracking-tight">Can't find what you're looking for?</h2>
+              <h2 className="text-2xl font-bold tracking-tight">
+                Can't find what you're looking for?
+              </h2>
               <p className="mt-3 text-base leading-7 text-muted-foreground sm:text-lg">
                 Talk to our team and we'll help you find the right answer.
               </p>

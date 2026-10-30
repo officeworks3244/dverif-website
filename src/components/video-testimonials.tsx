@@ -8,7 +8,7 @@ const videoTestimonials = [
     role: "CEO at DESK WORK SOLUTION",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "DWS"
+    logo: "DWS",
   },
   {
     id: 2,
@@ -16,7 +16,7 @@ const videoTestimonials = [
     role: "Operations Lead",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "HA"
+    logo: "HA",
   },
   {
     id: 3,
@@ -24,7 +24,7 @@ const videoTestimonials = [
     role: "People Operations",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "SA"
+    logo: "SA",
   },
   {
     id: 4,
@@ -32,7 +32,7 @@ const videoTestimonials = [
     role: "HR Director",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "JS"
+    logo: "JS",
   },
   {
     id: 5,
@@ -40,7 +40,7 @@ const videoTestimonials = [
     role: "Marketing Manager",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "ED"
+    logo: "ED",
   },
   {
     id: 6,
@@ -48,8 +48,8 @@ const videoTestimonials = [
     role: "CTO",
     thumbnail: "/assets/dws.jpg",
     video: "/assets/dverifvideo.mp4",
-    logo: "MB"
-  }
+    logo: "MB",
+  },
 ];
 
 export function VideoTestimonials() {
@@ -83,8 +83,8 @@ export function VideoTestimonials() {
     };
 
     handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const handlePlay = (videoUrl: string) => {
@@ -126,49 +126,53 @@ export function VideoTestimonials() {
                 // Determine alignment pattern based on current slide index
                 const isEvenSlide = activeIndex % 2 === 0;
                 const isCenterCard = index === 1;
-                
+
                 // For even slides: center card higher, sides lower
                 // For odd slides: center card lower, sides higher
-                const marginTop = isEvenSlide 
-                  ? (isCenterCard ? 'mt-0' : 'mt-8')  // even slide: center up, sides down
-                  : (isCenterCard ? 'mt-8' : 'mt-0'); // odd slide: center down, sides up
-                
+                const marginTop = isEvenSlide
+                  ? isCenterCard
+                    ? "mt-0"
+                    : "mt-8" // even slide: center up, sides down
+                  : isCenterCard
+                    ? "mt-8"
+                    : "mt-0"; // odd slide: center down, sides up
+
                 return (
                   <div
                     key={testimonial.id}
                     className={`relative shrink-0 w-64 sm:w-72 group cursor-pointer transition-all duration-500 ${marginTop}`}
                     onClick={() => handlePlay(testimonial.video)}
                   >
-                  {/* Video thumbnail card */}
-                  <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-card border border-border">
-                    {/* Thumbnail image */}
-                    <img
-                      src={testimonial.thumbnail}
-                      alt={testimonial.name}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
-                    />
+                    {/* Video thumbnail card */}
+                    <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-card border border-border">
+                      {/* Thumbnail image */}
+                      <img
+                        src={testimonial.thumbnail}
+                        alt={testimonial.name}
+                        className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
 
-                    {/* Logo watermark */}
-                    <div className="absolute top-3 left-3">
-                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm text-xs font-bold text-primary shadow-sm">
-                        {testimonial.logo}
+                      {/* Logo watermark */}
+                      <div className="absolute top-3 left-3">
+                        <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white/90 backdrop-blur-sm text-xs font-bold text-primary shadow-sm">
+                          {testimonial.logo}
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Play button overlay */}
-                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
-                      <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow-lg transition-transform duration-300 group-hover:scale-110">
-                        <Play className="h-6 w-6 text-primary fill-primary ml-1" />
+                      {/* Play button overlay */}
+                      <div className="absolute bottom-4 left-1/2 -translate-x-1/2">
+                        <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow-lg transition-transform duration-300 group-hover:scale-110">
+                          <Play className="h-6 w-6 text-primary fill-primary ml-1" />
+                        </div>
                       </div>
-                    </div>
 
-                    {/* Name overlay */}
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
-                      <p className="text-sm font-semibold text-white">{testimonial.name}</p>
-                      <p className="text-xs text-white/80">{testimonial.role}</p>
+                      {/* Name overlay */}
+                      <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+                        <p className="text-sm font-semibold text-white">{testimonial.name}</p>
+                        <p className="text-xs text-white/80">{testimonial.role}</p>
+                      </div>
                     </div>
                   </div>
-                </div>
                 );
               })}
             </div>
@@ -180,7 +184,9 @@ export function VideoTestimonials() {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`h-2.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-                    activeIndex === index ? "w-7 bg-primary" : "w-2.5 bg-primary/25 hover:bg-primary/50"
+                    activeIndex === index
+                      ? "w-7 bg-primary"
+                      : "w-2.5 bg-primary/25 hover:bg-primary/50"
                   }`}
                   aria-label={`Go to slide ${index + 1}`}
                   aria-current={activeIndex === index}
@@ -205,12 +211,7 @@ export function VideoTestimonials() {
             >
               ×
             </button>
-            <video
-              src={currentVideo}
-              controls
-              autoPlay
-              className="w-full rounded-lg shadow-2xl"
-            >
+            <video src={currentVideo} controls autoPlay className="w-full rounded-lg shadow-2xl">
               Your browser does not support the video tag.
             </video>
           </div>

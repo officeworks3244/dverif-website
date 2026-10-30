@@ -126,9 +126,9 @@
 }
 
 @utility btn-primary-glow {
-  background: linear-gradient(135deg, var(--primary), var(--primary-glow));
+  background: #17354d;
   color: var(--primary-foreground);
-  box-shadow: var(--shadow-glow);
+  box-shadow: 0 12px 26px -18px #17354d;
   transition:
     transform 200ms ease,
     box-shadow 200ms ease,
@@ -384,45 +384,45 @@
     var(--background);
 }
 
+.enterprise-dark h1,
+.page-hero h1,
+.page-hero-grid h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-weight: 600;
+  letter-spacing: -0.045em;
+}
+
+.enterprise-dark h2,
+.page-hero h2,
+.page-hero-grid h2 {
+  letter-spacing: -0.035em;
+}
+
 @utility page-hero-grid {
   position: relative;
   overflow: hidden;
   background:
-    linear-gradient(180deg, color-mix(in oklab, var(--primary) 5%, transparent), transparent 72%),
-    radial-gradient(
-      circle at 88% 12%,
-      color-mix(in oklab, var(--primary-glow) 22%, transparent),
-      transparent 24rem
-    ),
-    var(--background);
+    radial-gradient(circle at 90% 10%, rgba(47, 148, 121, 0.12), transparent 25rem), #fbfaf7;
 }
 
 @utility section-band {
   position: relative;
   overflow: hidden;
-  background:
-    linear-gradient(
-      90deg,
-      color-mix(in oklab, var(--primary) 8%, transparent) 1px,
-      transparent 1px
-    ),
-    linear-gradient(color-mix(in oklab, var(--primary) 8%, transparent) 1px, transparent 1px),
-    var(--section);
-  background-size: 44px 44px;
+  background: #f1f6f1;
 }
 
 @utility section-frame {
   position: relative;
-  border-radius: 1.5rem;
+  border-radius: 1.15rem;
   border: 1px solid color-mix(in oklab, var(--border) 86%, transparent);
-  background: color-mix(in oklab, var(--background) 80%, transparent);
-  box-shadow: 0 30px 70px -56px color-mix(in oklab, var(--foreground) 75%, transparent);
+  background: rgba(255, 255, 255, 0.58);
+  box-shadow: 0 24px 60px -52px color-mix(in oklab, var(--foreground) 75%, transparent);
 }
 
 @utility surface-card {
   border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
-  background: color-mix(in oklab, var(--card) 92%, transparent);
-  box-shadow: 0 18px 45px -36px color-mix(in oklab, var(--foreground) 58%, transparent);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 18px 45px -36px color-mix(in oklab, var(--foreground) 48%, transparent);
 }
 
 @utility section-kicker {

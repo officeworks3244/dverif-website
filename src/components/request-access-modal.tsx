@@ -108,7 +108,7 @@ export function RequestAccessModal({
       <DialogContent className="max-h-[92vh] max-w-[min(94vw,900px)] overflow-y-auto rounded-2xl border-white/40 bg-background/95 p-0 shadow-2xl backdrop-blur-xl sm:rounded-2xl [scrollbar-width:thin] [scrollbar-color:color-mix(in_oklab,var(--foreground)_25%,transparent)_transparent] [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-track]:bg-transparent [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-foreground/25 hover:[&::-webkit-scrollbar-thumb]:bg-foreground/40">
         {done ? (
           <div className="px-6 py-16 text-center sm:px-16">
-            <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-[#4F8CFF]/10 text-[#4F8CFF]">
+            <div className="mx-auto grid h-16 w-16 place-items-center rounded-2xl bg-[#2f9479]/10 text-[#2f9479]">
               <CheckCircle2 className="h-8 w-8" />
             </div>
             <h3 className="mt-6 text-2xl font-bold tracking-tight">Your request is on its way</h3>
@@ -122,7 +122,7 @@ export function RequestAccessModal({
           </div>
         ) : (
           <div className="grid lg:grid-cols-[.86fr_1.14fr]">
-            <section className="relative overflow-hidden bg-[linear-gradient(135deg,#4F8CFF,#6C63FF)] px-6 py-8 text-white sm:px-10 sm:py-10 lg:py-12">
+            <section className="relative overflow-hidden bg-[linear-gradient(135deg,#2f9479,#3b8e72)] px-6 py-8 text-white sm:px-10 sm:py-10 lg:py-12">
               <div className="absolute -left-16 top-0 h-48 w-48 rounded-full bg-white/10 blur-2xl" />
               <div className="absolute -bottom-20 right-0 h-56 w-56 rounded-full bg-[#8dd7ff]/20 blur-3xl" />
               <div className="relative">
@@ -133,7 +133,9 @@ export function RequestAccessModal({
                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-white/75">
                   Dverif access
                 </p>
-                <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">Request A Meeting</h2>
+                <h2 className="mt-3 text-2xl font-bold tracking-tight sm:text-3xl">
+                  Request A Meeting
+                </h2>
                 <p className="mt-3 max-w-xs text-sm leading-6 text-white/80">
                   Join teams that make document verification clearer, safer, and easier to manage.
                 </p>
@@ -199,15 +201,18 @@ export function RequestAccessModal({
                     autoComplete="tel"
                   />
                   <div className="space-y-2">
-                    <Label htmlFor="ra-company-size" className="text-sm font-medium text-foreground">
+                    <Label
+                      htmlFor="ra-company-size"
+                      className="text-sm font-medium text-foreground"
+                    >
                       Company Size (optional)
                     </Label>
                     <div className="group relative">
-                      <Users className="pointer-events-none absolute left-3.5 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-[#4F8CFF]" />
+                      <Users className="pointer-events-none absolute left-3.5 top-1/2 z-10 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-[#2f9479]" />
                       <Select value={companySize} onValueChange={setCompanySize}>
                         <SelectTrigger
                           id="ra-company-size"
-                          className="h-12 rounded-xl border-border/80 bg-background/70 pl-10 shadow-sm transition-all data-[placeholder]:text-muted-foreground/70 focus-visible:border-[#4F8CFF] focus-visible:ring-4 focus-visible:ring-[#4F8CFF]/15"
+                          className="h-12 rounded-xl border-border/80 bg-background/70 pl-10 shadow-sm transition-all data-[placeholder]:text-muted-foreground/70 focus-visible:border-[#2f9479] focus-visible:ring-4 focus-visible:ring-[#2f9479]/15"
                         >
                           <SelectValue placeholder="Select size" />
                         </SelectTrigger>

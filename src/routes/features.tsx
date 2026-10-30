@@ -19,13 +19,9 @@ function FeaturesSectionHeader({
     <div className="mx-auto max-w-2xl text-center">
       {eyebrow && <div className="section-kicker">{eyebrow}</div>}
 
-      <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">
-        {title}
-      </h2>
+      <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
 
-      {subtitle && (
-        <div className="mt-4 text-muted-foreground">{subtitle}</div>
-      )}
+      {subtitle && <div className="mt-4 text-muted-foreground">{subtitle}</div>}
     </div>
   );
 }
@@ -34,8 +30,7 @@ export const Route = createFileRoute("/features")({
   head: () => ({
     meta: [
       {
-        title:
-          "Features — DVerif | Document Verification, Employee & HR Management Platform",
+        title: "Features — DVerif | Document Verification, Employee & HR Management Platform",
       },
       {
         name: "description",
@@ -49,8 +44,7 @@ export const Route = createFileRoute("/features")({
       },
       {
         property: "og:title",
-        content:
-          "Features — DVerif | Document Verification & HR Platform",
+        content: "Features — DVerif | Document Verification & HR Platform",
       },
       {
         property: "og:description",
@@ -75,8 +69,7 @@ export const Route = createFileRoute("/features")({
       },
       {
         name: "robots",
-        content:
-          "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
       },
       {
         name: "twitter:card",
@@ -84,8 +77,7 @@ export const Route = createFileRoute("/features")({
       },
       {
         name: "twitter:title",
-        content:
-          "Features — DVerif | Document Verification & HR Platform",
+        content: "Features — DVerif | Document Verification & HR Platform",
       },
       {
         name: "twitter:description",
@@ -164,13 +156,13 @@ function FeaturesPage() {
       {/* Hero */}
       <section className="enterprise-dark pb-16 pt-20 sm:pb-20 lg:pt-28">
         <div className="container-page animate-fade-up text-center">
+          <div className="section-kicker">THE DVERIF PLATFORM</div>
           <h1 className="mx-auto mt-3 max-w-3xl text-4xl font-bold leading-[1.06] tracking-tight sm:text-5xl lg:text-[3.5rem]">
             Build for Teams that Verify at Scale
           </h1>
 
           <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-slate-300">
-            Explore tools for hiring, employee management, verification and
-            everyday HR workflows.
+            Explore tools for hiring, employee management, verification and everyday HR workflows.
           </p>
         </div>
       </section>
@@ -194,13 +186,9 @@ function FeaturesPage() {
             title="Ready to See it in Action?"
             subtitle={
               <>
-                Request access and our team will set you up with a live
-                walkthrough.
+                Request access and our team will set you up with a live walkthrough.
                 <br />
-                <Link
-                  to="/pricing"
-                  className="font-bold text-primary hover:underline"
-                >
+                <Link to="/pricing" className="font-bold text-primary hover:underline">
                   View our pricing plans
                 </Link>
                 .

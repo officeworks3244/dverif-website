@@ -19,50 +19,68 @@ export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
       { title: "Contact — Dverif | Get in Touch with Document Verification & HR Experts" },
-      { name: "description", content: "Contact the Dverif team for document verification, employee management, attendance, leave, or payroll support. Reach us via email at contact@dverif.com, WhatsApp, or our contact form." },
-      { name: "keywords", content: "contact Dverif, document verification support, verification help, customer support, partnership inquiries, Dverif contact information, HR software support, employee management help" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "description",
+        content:
+          "Contact the Dverif team for document verification, employee management, attendance, leave, or payroll support. Reach us via email at contact@dverif.com, WhatsApp, or our contact form.",
+      },
+      {
+        name: "keywords",
+        content:
+          "contact Dverif, document verification support, verification help, customer support, partnership inquiries, Dverif contact information, HR software support, employee management help",
+      },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
       { property: "og:type", content: "website" },
       { property: "og:title", content: "Contact — Dverif | Get in Touch" },
-      { property: "og:description", content: "Contact the Dverif team for document verification and organization management support. Email, WhatsApp, or contact form." },
+      {
+        property: "og:description",
+        content:
+          "Contact the Dverif team for document verification and organization management support. Email, WhatsApp, or contact form.",
+      },
       { property: "og:url", content: "https://dverif.com/contact" },
       { property: "og:image", content: "https://dverif.com/assets/logo-light.png" },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "Contact — Dverif | Get in Touch" },
-      { name: "twitter:description", content: "Contact the Dverif team for document verification and organization management support." },
+      {
+        name: "twitter:description",
+        content:
+          "Contact the Dverif team for document verification and organization management support.",
+      },
       { name: "twitter:image", content: "https://dverif.com/assets/logo-light.png" },
     ],
-    links: [
-      { rel: "canonical", href: "https://dverif.com/contact" },
-    ],
+    links: [{ rel: "canonical", href: "https://dverif.com/contact" }],
     scripts: [
       {
         type: "application/ld+json",
         innerHTML: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ContactPage",
-          "name": "Contact Dverif",
-          "url": "https://dverif.com/contact",
-          "description": "Get in touch with the Dverif team for support, questions, or partnership inquiries.",
-          "isPartOf": {
+          name: "Contact Dverif",
+          url: "https://dverif.com/contact",
+          description:
+            "Get in touch with the Dverif team for support, questions, or partnership inquiries.",
+          isPartOf: {
             "@type": "WebSite",
-            "name": "Dverif",
-            "url": "https://dverif.com"
+            name: "Dverif",
+            url: "https://dverif.com",
           },
-          "mainEntity": {
+          mainEntity: {
             "@type": "Organization",
-            "name": "Dverif",
-            "email": "contact@dverif.com",
-            "telephone": "+923199421413",
-            "contactPoint": {
+            name: "Dverif",
+            email: "contact@dverif.com",
+            telephone: "+923199421413",
+            contactPoint: {
               "@type": "ContactPoint",
-              "email": "contact@dverif.com",
-              "telephone": "+923199421413",
-              "contactType": "customer support",
-              "availableLanguage": "English"
-            }
-          }
+              email: "contact@dverif.com",
+              telephone: "+923199421413",
+              contactType: "customer support",
+              availableLanguage: "English",
+            },
+          },
         }),
       },
     ],
@@ -77,7 +95,7 @@ const contactCards = [
     copy: "For general questions and support.",
     value: "contact@dverif.com",
     href: "mailto:contact@dverif.com",
-    tint: "bg-[#4F8CFF]/10 text-[#4F8CFF]",
+    tint: "bg-[#2f9479]/10 text-[#2f9479]",
   },
   {
     icon: MessageCircle,
@@ -127,7 +145,7 @@ function Page() {
       setPhoneError(null);
       return false;
     }
-    const phoneClean = phone.replace(/[\s\-\(\)\+]/g, "");
+    const phoneClean = phone.replace(/[\s()+-]/g, "");
     const phoneRegex = /^[0-9]{10,15}$/;
     if (!phoneRegex.test(phoneClean)) {
       setPhoneError("Invalid phone number");
@@ -145,7 +163,7 @@ function Page() {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
-    
+
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
     const phone = String(data.get("phone") || "").trim();
@@ -192,9 +210,7 @@ function Page() {
       <section className="page-hero-grid py-16 sm:py-20 lg:py-24">
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <header className="mx-auto max-w-2xl text-center animate-fade-up">
-            {/* <div className="section-kicker gap-2"> */}
-              {/* <MessageSquareText className="h-3.5 w-3.5" /> CONTACT OUR TEAM */}
-            {/* </div> */}
+            <div className="section-kicker">CONTACT OUR TEAM</div>
             <h1 className="mt-5 text-4xl font-bold tracking-[-.04em] sm:text-5xl">
               How Can we Help?
             </h1>
@@ -209,7 +225,7 @@ function Page() {
               <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary via-primary-glow to-primary" />
               {done ? (
                 <div className="flex min-h-[525px] flex-col items-center justify-center text-center animate-fade-up">
-                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-[#4F8CFF]/10 text-[#4F8CFF]">
+                  <div className="grid h-16 w-16 place-items-center rounded-2xl bg-[#2f9479]/10 text-[#2f9479]">
                     <CheckCircle2 className="h-8 w-8" />
                   </div>
                   <h2 className="mt-6 text-2xl font-bold">Message sent successfully</h2>
@@ -223,7 +239,7 @@ function Page() {
               ) : (
                 <>
                   <div className="flex items-start gap-3">
-                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[linear-gradient(135deg,#4F8CFF,#6C63FF)] text-white shadow-lg shadow-[#4F8CFF]/25">
+                    <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-[linear-gradient(135deg,#2f9479,#3b8e72)] text-white shadow-lg shadow-[#2f9479]/25">
                       <Send className="h-5 w-5" />
                     </div>
                     <div>
@@ -328,15 +344,12 @@ function Page() {
                     {content}
                   </a>
                 ) : (
-                  <div
-                    key={title}
-                    className="surface-card flex gap-4 rounded-2xl p-5 sm:p-6"
-                  >
+                  <div key={title} className="surface-card flex gap-4 rounded-2xl p-5 sm:p-6">
                     {content}
                   </div>
                 );
               })}
-              <div className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-[#4F8CFF]/20 bg-[linear-gradient(135deg,rgba(79,140,255,.12),rgba(108,99,255,.11))] p-6 sm:p-7">
+              <div className="relative flex flex-1 flex-col justify-center overflow-hidden rounded-2xl border border-[#2f9479]/20 bg-[linear-gradient(135deg,rgba(47,148,121,.12),rgba(59,142,114,.11))] p-6 sm:p-7">
                 <div className="absolute -right-5 -top-6 h-20 w-20 rounded-full bg-white/35 blur-xl" />
                 <h3 className="relative text-lg font-bold">We’re here to help</h3>
                 <p className="relative mt-2 text-sm leading-6 text-muted-foreground">

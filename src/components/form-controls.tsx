@@ -21,11 +21,11 @@ export function InputField({ label, icon: Icon, error, className, id, ...props }
         {label}
       </Label>
       <div className="group relative">
-        <Icon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-[#4F8CFF]" />
+        <Icon className="pointer-events-none absolute left-3.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground transition-colors group-focus-within:text-[#2f9479]" />
         <Input
           id={fieldId}
           className={cn(
-            "h-12 rounded-xl border-border/80 bg-background/70 pl-10 shadow-sm transition-all placeholder:text-muted-foreground/70 focus-visible:border-[#4F8CFF] focus-visible:ring-4 focus-visible:ring-[#4F8CFF]/15",
+            "h-12 rounded-xl border-border/80 bg-background/70 pl-10 shadow-sm transition-all placeholder:text-muted-foreground/70 focus-visible:border-[#2f9479] focus-visible:ring-4 focus-visible:ring-[#2f9479]/15",
             error && "border-destructive focus-visible:ring-destructive/15",
             className,
           )}
@@ -52,12 +52,12 @@ export function TextArea({ label, icon: Icon, error, className, id, ...props }: 
       </Label>
       <div className="group relative">
         {Icon && (
-          <Icon className="pointer-events-none absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-[#4F8CFF]" />
+          <Icon className="pointer-events-none absolute left-3.5 top-3.5 h-4 w-4 text-muted-foreground transition-colors group-focus-within:text-[#2f9479]" />
         )}
         <BaseTextarea
           id={fieldId}
           className={cn(
-            "resize-none rounded-xl border-border/80 bg-background/70 py-3 shadow-sm transition-all placeholder:text-muted-foreground/70 focus-visible:border-[#4F8CFF] focus-visible:ring-4 focus-visible:ring-[#4F8CFF]/15",
+            "resize-none rounded-xl border-border/80 bg-background/70 py-3 shadow-sm transition-all placeholder:text-muted-foreground/70 focus-visible:border-[#2f9479] focus-visible:ring-4 focus-visible:ring-[#2f9479]/15",
             Icon && "pl-10",
             error && "border-destructive focus-visible:ring-destructive/15",
             className,

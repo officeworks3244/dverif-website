@@ -68,19 +68,19 @@ function SecurityIllustration() {
       <div className="absolute inset-x-4 inset-y-2 rounded-full bg-primary/15 blur-3xl" />
       <div className="absolute h-40 w-40 rounded-full border border-primary/20" />
       <div className="absolute h-52 w-52 rounded-full border border-dashed border-primary/20" />
-      <span className="absolute left-3 top-7 h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_3px_rgba(79,140,255,.35)]" />
-      <span className="absolute bottom-10 right-4 h-1.5 w-1.5 rounded-full bg-primary-glow shadow-[0_0_12px_3px_rgba(79,140,255,.35)]" />
-      <div className="relative rotate-[-7deg] rounded-2xl border border-primary/30 bg-white/90 p-3.5 shadow-[0_0_32px_rgba(79,140,255,.18)] backdrop-blur">
+      <span className="absolute left-3 top-7 h-1.5 w-1.5 rounded-full bg-primary shadow-[0_0_12px_3px_rgba(47,148,121,.35)]" />
+      <span className="absolute bottom-10 right-4 h-1.5 w-1.5 rounded-full bg-primary-glow shadow-[0_0_12px_3px_rgba(47,148,121,.35)]" />
+      <div className="relative rotate-[-7deg] rounded-2xl border border-primary/30 bg-white/90 p-3.5 shadow-[0_0_32px_rgba(47,148,121,.18)] backdrop-blur">
         <div className="w-24 rounded-xl border border-primary/10 bg-sky-50 p-3">
           <div className="flex items-center justify-between text-primary">
             <FileText className="h-5 w-5" />
-            <span className="h-1.5 w-5 rounded-full bg-[#4f8cff]/60" />
+            <span className="h-1.5 w-5 rounded-full bg-[#2f9479]/60" />
           </div>
           <span className="mt-3 block h-1.5 w-full rounded-full bg-primary/20" />
           <span className="mt-2 block h-1.5 w-4/5 rounded-full bg-primary/15" />
           <span className="mt-2 block h-1.5 w-3/5 rounded-full bg-primary/15" />
         </div>
-        <div className="absolute -bottom-5 -right-5 grid h-12 w-12 rotate-[7deg] place-items-center rounded-2xl border border-primary/40 bg-[linear-gradient(135deg,#4f8cff,#60a5fa)] text-white shadow-[0_0_22px_rgba(79,140,255,.35)]">
+        <div className="absolute -bottom-5 -right-5 grid h-12 w-12 rotate-[7deg] place-items-center rounded-2xl border border-primary/40 bg-[linear-gradient(135deg,#2f9479,#60a5fa)] text-white shadow-[0_0_22px_rgba(47,148,121,.35)]">
           <ShieldCheck className="h-6 w-6" />
         </div>
       </div>
