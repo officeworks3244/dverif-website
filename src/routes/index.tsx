@@ -1,70 +1,43 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import {
+  ArrowRight,
+  ArrowUpRight,
+  BadgeCheck,
+  CheckCircle2,
+  FileCheck2,
+  LockKeyhole,
+  QrCode,
+  Settings2,
+  ShieldCheck,
+  Users,
+} from "lucide-react";
 import { SiteLayout } from "@/components/site-layout";
 import { RequestAccessModal } from "@/components/request-access-modal";
-import {
-  ShieldAlert,
-  Clock,
-  AlertTriangle,
-  LayoutDashboard,
-  FileCheck2,
-  ArrowDownRight,
-  CheckCircle2,
-  Building2,
-  Send,
-  SearchX,
-  Sparkles,
-  XCircle,
-} from "lucide-react";
-import { useInView } from "@/hooks/use-in-view";
-// import { FeatureShowcase } from "@/components/feature-showcase";
-import { ProductJourney } from "@/components/product-capabilities";
 import { VideoTestimonials } from "@/components/video-testimonials";
 import { ReadyToSimplify } from "@/components/footer";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Dverif — Verify Documents in Minutes | Secure Document Verification & HR Platform" },
+      { title: "Dverif — Trusted Document Verification & HR Operations" },
       {
         name: "description",
         content:
-          "Dverif is a secure document verification and organization management platform. Verify documents in minutes, stop scams, and manage employees, attendance, leave, and payroll from one place.",
+          "Dverif helps organizations verify documents, manage employee records, and simplify daily HR operations from one secure workspace.",
       },
-      { name: "keywords", content: "document verification, secure verification, identity verification, scam prevention, document authentication, background checks, employment verification, academic verification, certificate verification, employee management, attendance management, leave management, payroll management, HR software Pakistan" },
-      { name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+      {
+        name: "keywords",
+        content:
+          "document verification, employee management, HR platform, QR certificates, attendance, leave, payroll, Dverif",
+      },
+      { name: "robots", content: "index, follow, max-image-preview:large" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Dverif — Verify Documents in Minutes" },
+      { property: "og:title", content: "Dverif — Trust every document. Manage every employee." },
       {
         property: "og:description",
-        content: "Verify documents in minutes and manage employees, attendance, leave, and payroll from one place. Stop scams and streamline your workflows.",
+        content: "Verify documents and run everyday HR operations from one secure workspace.",
       },
       { property: "og:url", content: "https://dverif.com" },
-      { property: "og:image", content: "https://dverif.com/assets/logo-light.png" },
-      { property: "og:locale", content: "en_US" },
-      { name: "twitter:title", content: "Dverif — Verify Documents in Minutes" },
-      { name: "twitter:description", content: "Verify documents in minutes and manage employees, attendance, leave, and payroll from one place." },
-      { name: "twitter:image", content: "https://dverif.com/assets/logo-light.png" },
-    ],
-    links: [
-      { rel: "canonical", href: "https://dverif.com" },
-    ],
-    scripts: [
-      {
-        type: "application/ld+json",
-        innerHTML: JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": "Dverif — Verify Documents in Minutes",
-          "url": "https://dverif.com",
-          "description": "Dverif is a secure document verification and organization management platform.",
-          "isPartOf": { "@id": "https://dverif.com/#website" },
-          "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "https://dverif.com/assets/logo-light.png"
-          }
-        }),
-      },
     ],
   }),
   component: Home,
@@ -74,275 +47,327 @@ function Home() {
   return (
     <SiteLayout>
       <Hero />
-      <ProductJourney />
-      <Problems />
-      {/* <DashboardPreview /> */}
-      {/* <Features /> */}
-      {/* <HowItWorks /> */}
+      <Pillars />
+      <VerificationStory />
+      <SecurityBand />
       <VideoTestimonials />
       <ReadyToSimplify />
     </SiteLayout>
   );
 }
 
+function BrandMark() {
+  return (
+    <span className="inline-flex items-center gap-2.5" aria-label="DVerif">
+      <span className="grid h-9 w-9 place-items-center rounded-[11px] bg-[#2f9479] text-white shadow-[0_8px_18px_-9px_#2f9479]">
+        <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
+      </span>
+      <span className="text-[1.45rem] font-semibold tracking-[-0.055em] text-[#102640]">
+        DVerif
+      </span>
+    </span>
+  );
+}
+
 function Hero() {
   return (
-    <section className="enterprise-dark -mt-[120px] pt-[120px]">
-      <div className="container-page grid items-center gap-12 pt-10 pb-16 sm:pt-14 sm:pb-20 lg:grid-cols-[.92fr_1.08fr] lg:gap-14 lg:pt-16 lg:pb-24">
-        <div className="animate-fade-up flex w-full flex-col items-center text-center lg:items-start lg:text-left">
-
-          <h1 className="mt-7 max-w-3xl text-5xl font-bold leading-[0.98] tracking-tight sm:text-6xl lg:text-[4.5rem]">
-            Verify Documents
-            <br />
-            <span className="bg-gradient-to-r from-primary to-[color:var(--primary-glow)] bg-clip-text text-transparent">
-              in Minutes
-            </span>
-          </h1>
-          <p className="mt-7 max-w-2xl text-base leading-7 text-slate-300 sm:text-lg">
-            Scams, endless back-and-forth and long delays cost you time and reputation. Dverif
-            brings issuers, verifiers, and organizations together in one clean <Link to="/features" className="text-primary hover:underline">secure verification workflow</Link>.
+    <section className="relative overflow-hidden bg-[#fbfaf7] pb-16 pt-8 sm:pb-24 sm:pt-14 lg:pb-24 lg:pt-20">
+      <div className="pointer-events-none absolute -right-16 top-4 h-[430px] w-[430px] rounded-full bg-[#e5f1ea]/70 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 left-[42%] h-44 w-44 rounded-full bg-[#f0eee7] blur-3xl" />
+      <div className="container-page relative grid items-center gap-14 lg:grid-cols-[.93fr_1.07fr] lg:gap-16">
+        <div className="animate-fade-up max-w-2xl">
+          <p className="mb-5 text-[0.7rem] font-semibold uppercase tracking-[0.23em] text-[#518f7b]">
+            Trusted operations, built around verification
           </p>
-          <div className="mt-9 flex w-full flex-col justify-center gap-3 sm:w-auto sm:flex-row lg:justify-start">
-            <RequestAccessModal />
+          <h1 className="max-w-[700px] font-serif text-[3.35rem] font-semibold leading-[0.98] tracking-[-0.06em] text-[#112b47] sm:text-[4.45rem] lg:text-[5rem]">
+            Trust every document.
+            <br />
+            Manage every employee.
+          </h1>
+          <p className="mt-7 max-w-xl text-base leading-7 text-[#5d6873] sm:text-lg sm:leading-8">
+            DVerif helps organizations verify documents, manage employee records and simplify daily
+            HR operations from one secure workspace.
+          </p>
+          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+            <RequestAccessModal>
+              <button className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] bg-[#142d48] px-6 text-sm font-semibold text-white shadow-[0_14px_28px_-18px_#142d48] transition-transform hover:-translate-y-0.5">
+                Get started <ArrowRight className="h-4 w-4" />
+              </button>
+            </RequestAccessModal>
             <a
-              href="#how-it-works"
-              onClick={(e) => {
-                e.preventDefault();
-                const element = document.getElementById('how-it-works');
-                if (element) {
-                  const navbarHeight = 100;
-                  const elementPosition = element.getBoundingClientRect().top;
-                  const offsetPosition = elementPosition + window.pageYOffset - navbarHeight;
-                  window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                  });
-                }
-              }}
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/8 px-5 text-sm font-medium text-white transition-colors hover:bg-white/15"
+              href="#platform"
+              className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-[#9ca9af] bg-white/55 px-6 text-sm font-semibold text-[#17314c] transition-colors hover:bg-white"
             >
-              See how it works <ArrowDownRight className="h-4 w-4" />
+              Explore platform <ArrowUpRight className="h-4 w-4" />
             </a>
           </div>
-          <div className="mt-8 flex flex-wrap justify-center gap-x-6 gap-y-3 text-sm text-slate-300 lg:justify-start">
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> Zero Scam Tolerance
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> Minutes, Not Weeks
-            </div>
-            <div className="flex items-center gap-2">
-              <CheckCircle2 className="h-4 w-4 text-primary" /> Audit Trail
-            </div>
-            <Link to="/pricing" className="flex items-center gap-2 text-primary hover:underline">
-              
-            </Link>
+          <div className="mt-8 flex flex-wrap gap-x-6 gap-y-3 text-sm text-[#61706d]">
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[#398f78]" />
+              Secure access
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[#398f78]" />
+              QR certificates
+            </span>
+            <span className="inline-flex items-center gap-2">
+              <CheckCircle2 className="h-4 w-4 text-[#398f78]" />
+              English & Urdu
+            </span>
           </div>
         </div>
-        <div className="animate-fade-in-soft w-full">
-          <DashboardMock />
-        </div>
+        <HeroProductVisual />
       </div>
     </section>
   );
 }
 
-function DashboardMock() {
+function HeroProductVisual() {
   return (
-    <div className="relative">
-      <div
-        className="absolute -inset-8 bg-gradient-to-tr from-primary/20 to-transparent blur-3xl rounded-full"
-        aria-hidden
-      />
-      <div className="dark-panel relative aspect-video overflow-hidden rounded-3xl">
-        <video
-          className="pointer-events-none h-full w-full object-cover"
-          src="/assets/dverifvideo.mp4"
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-label="Dverif platform dashboard overview showing document verification workflow"
-          poster="/assets/video-poster.jpg"
-          width="1920"
-          height="1080"
-        >
-          Your browser does not support the video tag.
-        </video>
+    <div className="relative animate-fade-in-soft lg:pl-4">
+      <div className="absolute -right-8 top-0 h-64 w-64 rounded-full bg-[#dcece3]/80 blur-3xl" />
+      <div className="relative mx-auto max-w-[650px]">
+        <div className="absolute -right-2 -top-10 hidden rotate-[7deg] font-serif text-2xl italic leading-7 text-[#77948a] sm:block">
+          Verified people
+          <br />
+          build stronger
+          <br />
+          organizations
+        </div>
+        <div className="relative overflow-hidden rounded-[17px] border border-[#d6dedb] bg-white shadow-[0_32px_70px_-35px_rgba(26,54,65,.34)]">
+          <div className="flex h-10 items-center gap-1.5 border-b border-[#e6ebe8] bg-[#fbfcfb] px-4">
+            <span className="h-2.5 w-2.5 rounded-full bg-[#ef8f83]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#f0c86e]" />
+            <span className="h-2.5 w-2.5 rounded-full bg-[#72bf9a]" />
+            <span className="ml-3 inline-flex items-center gap-1.5 text-[10px] font-semibold text-[#527067]">
+              <ShieldCheck className="h-3 w-3" /> DVerif
+            </span>
+          </div>
+          <div className="grid gap-5 p-5 sm:grid-cols-[1fr_180px] sm:p-7">
+            <div className="rounded-xl border border-[#e0e8e4] bg-white p-5 shadow-sm">
+              <div className="flex items-center justify-between">
+                <div className="text-sm font-semibold text-[#203449]">Academic Certificate</div>
+                <QrCode className="h-10 w-10 text-[#132c47]" />
+              </div>
+              <div className="mt-5 grid grid-cols-[95px_1fr] gap-y-2 text-[10px]">
+                <span className="text-[#98a19f]">Student Name</span>
+                <span className="font-medium text-[#44535b]">Ayesha Khan</span>
+                <span className="text-[#98a19f]">Degree</span>
+                <span className="font-medium text-[#44535b]">Bachelor of Computer Science</span>
+                <span className="text-[#98a19f]">Institution</span>
+                <span className="font-medium text-[#44535b]">National University</span>
+                <span className="text-[#98a19f]">Certificate ID</span>
+                <span className="font-medium text-[#44535b]">NU-BCS-2023-4587</span>
+              </div>
+              <div className="mt-5 flex items-center gap-3 rounded-lg bg-[#eaf5ee] p-3">
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-[#46a27f] text-white">
+                  <BadgeCheck className="h-5 w-5" />
+                </span>
+                <div>
+                  <p className="text-xs font-semibold text-[#267059]">Certificate verified</p>
+                  <p className="mt-0.5 text-[10px] text-[#668277]">
+                    This document is authentic and has not been altered.
+                  </p>
+                </div>
+              </div>
+              <div className="mt-4 flex items-center gap-2 border-t border-[#edf0ed] pt-3 text-[10px] text-[#6b7775]">
+                <ShieldCheck className="h-4 w-4 text-[#438d76]" /> Verified by DVerif · 12 Jun 2023,
+                10:24 AM PKT
+              </div>
+            </div>
+            <div className="rounded-xl border border-[#e0e8e4] bg-[#fbfdfb] p-4 shadow-sm sm:mt-8">
+              <div className="flex items-center gap-2">
+                <span className="grid h-9 w-9 place-items-center rounded-full bg-[#e6f0f1] text-xs font-semibold text-[#2c5965]">
+                  AK
+                </span>
+                <div>
+                  <p className="text-xs font-semibold text-[#253c4e]">Ayesha Khan</p>
+                  <p className="text-[9px] text-[#87928f]">Employee ID · EMP-1042</p>
+                </div>
+              </div>
+              <div className="mt-4 space-y-2.5 text-[10px] text-[#5e6a68]">
+                <div className="flex justify-between">
+                  <span>Department</span>
+                  <span className="font-medium text-[#344a57]">Product</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Position</span>
+                  <span className="font-medium text-[#344a57]">Product Manager</span>
+                </div>
+                <div className="flex justify-between">
+                  <span>Status</span>
+                  <span className="rounded-full bg-[#e2f2e8] px-2 py-0.5 font-medium text-[#398364]">
+                    Active
+                  </span>
+                </div>
+              </div>
+              <div className="mt-5 space-y-3 border-t border-[#e5ebe8] pt-4 text-[10px] text-[#5b6d6b]">
+                <span className="block">⌁ Personal information</span>
+                <span className="block">▧ Documents (4)</span>
+                <span className="block">◷ Attendance</span>
+                <span className="block">⌕ Leave</span>
+                <span className="block">▤ Payroll</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
 
-function Problems() {
+function Pillars() {
   const items = [
     {
-      icon: ShieldAlert,
-      title: "Scams",
-      body: "Forged documents slip through email chains. Dverif verifies at the source.",
+      icon: FileCheck2,
+      title: "Verify",
+      text: "Verify documents at the source with tamper-aware certificates.",
     },
     {
-      icon: AlertTriangle,
-      title: "Hassle",
-      body: "Chasing issuers over phone and email costs your team days each week.",
+      icon: Users,
+      title: "Manage people",
+      text: "Keep employee records, onboarding and offboarding organized.",
     },
     {
-      icon: Clock,
-      title: "Delays",
-      body: "Waiting weeks for a verification blocks admissions, hiring and payouts.",
+      icon: Settings2,
+      title: "Run HR operations",
+      text: "Handle attendance, leave, payroll, expenses and letters in one place.",
     },
   ];
   return (
-    <section className="enterprise-light py-12 lg:py-16">
+    <section id="platform" className="bg-[#fbfaf7] pb-16 sm:pb-24">
       <div className="container-page">
-        <div className="section-frame px-5 py-10 sm:px-8 lg:px-12 lg:py-14">
-          <SectionHeader
-            // eyebrow="The problem"
-            title={
-              <>
-                <span className="block">Verification is Broken ?</span>
-
-                <span className="block">DVerif will Fix it !</span>
-              </>
-            }
-            subtitle={
-              <>
-                Learn more about our <Link to="/features" className="text-primary hover:underline">secure verification features</Link> that protects your organization.
-              </>
-            }
-          />
-
-        <div className="mt-12 grid gap-5 md:grid-cols-3 lg:gap-7">
-          {items.map((it) => (
-            <div key={it.title} className="surface-card card-hover relative overflow-hidden rounded-2xl p-6 sm:p-7">
-              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary to-primary-glow" />
-              <div className="flex items-center gap-3">
-                <div className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-primary/10 text-primary">
-                  <it.icon className="h-5 w-5" />
-                </div>
-                <h3 className="text-lg font-semibold">{it.title}</h3>
+        <div className="border-t border-[#e5e8e2] pt-14 text-center sm:pt-20">
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.24em] text-[#5a9985]">
+            One workspace for trusted operations
+          </p>
+          <h2 className="mx-auto mt-4 max-w-3xl font-serif text-3xl font-semibold tracking-[-0.04em] text-[#17314c] sm:text-4xl lg:text-[2.8rem]">
+            From verification to everyday HR, keep work moving.
+          </h2>
+        </div>
+        <div className="mt-10 grid gap-4 md:grid-cols-3 md:gap-5">
+          {items.map((item) => (
+            <div
+              key={item.title}
+              className="group rounded-[12px] border border-[#dfe5e0] bg-white/60 p-5 transition-all hover:-translate-y-1 hover:bg-white hover:shadow-[0_18px_40px_-28px_rgba(25,51,63,.5)] sm:p-6"
+            >
+              <div className="grid h-12 w-12 place-items-center rounded-xl bg-[#e9f4ed] text-[#287a65]">
+                <item.icon className="h-6 w-6" strokeWidth={1.7} />
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">{it.body}</p>
+              <h3 className="mt-5 text-lg font-semibold text-[#203449]">{item.title}</h3>
+              <p className="mt-2 text-sm leading-6 text-[#697572]">{item.text}</p>
+              <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-[#3a8c75] opacity-0 transition-opacity group-hover:opacity-100">
+                Learn more <ArrowRight className="h-3.5 w-3.5" />
+              </span>
             </div>
           ))}
-        </div>
         </div>
       </div>
     </section>
   );
 }
 
-// function DashboardPreview() {
-//   const stats = [
-//     { icon: Building2, label: "Organizations", value: "128" },
-//     { icon: Send, label: "Requests Sent", value: "2,431" },
-//     { icon: SearchX, label: "Unmatched", value: "17" },
-//   ];
-//   return (
-//     <section className="section-y">
-//       <div className="container-page">
-//         <SectionHeader eyebrow="Dashboard" title="A single pane for every verification" />
-//         <div className="mt-12 grid gap-6 md:grid-cols-3">
-//           {stats.map((s) => (
-//             <div key={s.label} className="card-hover rounded-2xl border border-border bg-card p-6">
-//               <div className="flex items-center justify-between">
-//                 <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 text-primary">
-//                   <s.icon className="h-5 w-5" />
-//                 </div>
-//                 <span className="text-xs text-muted-foreground">Live</span>
-//               </div>
-//               <div className="mt-4 text-3xl font-bold">{s.value}</div>
-//               <div className="text-sm text-muted-foreground">{s.label}</div>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
+function VerificationStory() {
+  return (
+    <section className="bg-[#f1f6f1] py-16 sm:py-24">
+      <div className="container-page grid items-center gap-10 lg:grid-cols-[.9fr_1.1fr] lg:gap-20">
+        <div>
+          <p className="text-[0.68rem] font-semibold uppercase tracking-[0.23em] text-[#4c967e]">
+            Document verification
+          </p>
+          <h2 className="mt-4 max-w-xl font-serif text-3xl font-semibold leading-tight tracking-[-0.04em] text-[#17314c] sm:text-4xl">
+            Give every document a clear, verifiable history.
+          </h2>
+          <p className="mt-5 max-w-lg text-base leading-7 text-[#66746f]">
+            Create digital certificates with embedded QR codes, track request progress, and let
+            anyone verify an issued record from a public verification page.
+          </p>
+          <div className="mt-7 space-y-3 text-sm text-[#50635e]">
+            <div className="flex items-center gap-3">
+              <BadgeCheck className="h-5 w-5 text-[#3d9277]" />
+              Auto verification for eligible requests
+            </div>
+            <div className="flex items-center gap-3">
+              <QrCode className="h-5 w-5 text-[#3d9277]" />
+              Instant public certificate verification
+            </div>
+            <div className="flex items-center gap-3">
+              <LockKeyhole className="h-5 w-5 text-[#3d9277]" />
+              Role-based access and audit history
+            </div>
+          </div>
+        </div>
+        <div className="relative rounded-2xl border border-[#d8e6dc] bg-white p-5 shadow-[0_28px_60px_-40px_rgba(28,63,56,.5)] sm:p-7">
+          <div className="flex items-center justify-between border-b border-[#e9eeea] pb-4">
+            <div>
+              <p className="text-xs font-semibold text-[#294257]">Verification certificate</p>
+              <p className="mt-1 text-[10px] text-[#81908b]">
+                Employment · DVerif Certificate #DV-1042
+              </p>
+            </div>
+            <span className="rounded-full bg-[#e6f4eb] px-3 py-1 text-[10px] font-semibold text-[#3c896f]">
+              Verified
+            </span>
+          </div>
+          <div className="grid gap-5 py-6 sm:grid-cols-[1fr_130px]">
+            <div className="space-y-4 text-xs">
+              <div className="grid grid-cols-[100px_1fr] gap-2">
+                <span className="text-[#98a49f]">Employee</span>
+                <span className="font-semibold text-[#3a4c57]">Ayesha Khan</span>
+                <span className="text-[#98a49f]">Organization</span>
+                <span className="font-semibold text-[#3a4c57]">Acme Systems</span>
+                <span className="text-[#98a49f]">Issued</span>
+                <span className="font-semibold text-[#3a4c57]">12 June 2023</span>
+                <span className="text-[#98a49f]">Status</span>
+                <span className="font-semibold text-[#3a8d73]">Authentic and active</span>
+              </div>
+              <div className="rounded-lg bg-[#f4f8f5] p-3 text-[10px] leading-5 text-[#5e746b]">
+                This certificate was issued by an authorized organization and has not been altered
+                since issuance.
+              </div>
+            </div>
+            <div className="grid place-items-center rounded-xl bg-[#fbfcfa] p-4">
+              <QrCode className="h-24 w-24 text-[#17314c]" />
+              <span className="mt-2 text-[10px] font-medium text-[#718078]">Scan to verify</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
-// function Features() {
-//   return (
-//     <section className="bg-section py-12 lg:py-16">
-//       <div className="container-page">
-//         <SectionHeader eyebrow="Features" title="Verification You Need, DVerif will Provide" />
-//         <FeatureShowcase />
-//       </div>
-//     </section>
-//   );
-// }
-
-// function HowItWorks() {
-//   const { ref, inView } = useInView<HTMLElement>({ threshold: 0.2 });
-//   const steps = [
-//     {
-//       icon: Send,
-//       title: "Send a Request",
-//       body: "Pick the issuer and share the document details.",
-//     },
-//     {
-//       icon: ShieldCheck2,
-//       title: "Verification",
-//       body: "The issuer confirms directly through Dverif — no back-channels.",
-//     },
-//     {
-//       icon: CheckCircle2,
-//       title: "Get a Signed Result",
-//       body: "Receive an audit-ready verification you can trust.",
-//     },
-//   ];
-//   return (
-//     <section ref={ref} id="how" className={`enterprise-dark py-12 lg:py-16 ${inView ? "how-section-visible" : ""}`}>
-//       <div className="container-page how-section-animate">
-//         <SectionHeader eyebrow="How it works" title="Three steps. Minutes, Not Weeks." />
-//         <div className="relative mt-10 grid gap-5 md:grid-cols-3 lg:mt-12 lg:gap-4">
-//           <div
-//             className="hidden md:block absolute top-6 left-[16%] right-[16%] h-px bg-gradient-to-r from-transparent via-primary/40 to-transparent how-line-animate"
-//             style={{ animationDelay: "0.4s" }}
-//             aria-hidden
-//           />
-//           {steps.map((s, i) => (
-//             <div
-//               key={s.title}
-//               className="dark-panel relative text-center rounded-2xl p-6 text-white sm:p-7 how-step-animate how-step-card lg:min-h-[250px]"
-//               style={{ animationDelay: `${i * 0.2 + 0.2}s` }}
-//             >
-//               <div
-//                 className="relative mx-auto grid h-12 w-12 place-items-center rounded-2xl btn-primary-glow how-icon-animate"
-//                 style={{ animationDelay: `${i * 0.2 + 0.4}s` }}
-//               >
-//                 <s.icon className="h-5 w-5" />
-//                 <span
-//                   className="absolute -top-2 -right-2 grid h-6 w-6 place-items-center rounded-full bg-card border border-border text-xs font-bold text-primary how-number-animate"
-//                   style={{ animationDelay: `${i * 0.2 + 0.5}s` }}
-//                 >
-//                   {i + 1}
-//                 </span>
-//               </div>
-//               <h3
-//                 className="mt-4 font-semibold how-text-animate"
-//                 style={{ animationDelay: `${i * 0.2 + 0.6}s` }}
-//               >
-//                 {s.title}
-//               </h3>
-//               <p
-//                 className="mx-auto mt-1.5 max-w-xs text-sm text-slate-300 how-text-animate"
-//                 style={{ animationDelay: `${i * 0.2 + 0.7}s` }}
-//               >
-//                 {s.body}
-//               </p>
-//             </div>
-//           ))}
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// // Local alias to avoid double import
-// function ShieldCheck2(props: React.ComponentProps<typeof ShieldAlert>) {
-//   return <FileCheck2 {...props} />;
-// }
+function SecurityBand() {
+  return (
+    <section className="border-t border-[#dfe9e2] bg-[#edf5ef] py-8 sm:py-10">
+      <div className="container-page flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex items-center gap-4">
+          <ShieldCheck className="h-8 w-8 text-[#4a947b]" />
+          <div>
+            <h2 className="text-base font-semibold text-[#234151]">
+              Built for organizations that handle sensitive information
+            </h2>
+            <p className="mt-1 text-sm text-[#6a7973]">Trust is designed into every workflow.</p>
+          </div>
+        </div>
+        <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm text-[#506860]">
+          <span className="inline-flex items-center gap-2">
+            <LockKeyhole className="h-4 w-4 text-[#4a947b]" />
+            Role-based access
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <BadgeCheck className="h-4 w-4 text-[#4a947b]" />
+            Audit history
+          </span>
+          <span className="inline-flex items-center gap-2">
+            <Users className="h-4 w-4 text-[#4a947b]" />
+            Data isolation
+          </span>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function PlanCard({
   name,
@@ -367,7 +392,7 @@ export function PlanCard({
 }) {
   return (
     <div
-      className={`card-hover relative flex h-full flex-col rounded-2xl border p-7 sm:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-[var(--shadow-elegant)] ${featured ? "border-primary bg-card shadow-[var(--shadow-glow)]" : "border-border bg-card"}`}
+      className={`card-hover relative flex h-full flex-col rounded-2xl border p-7 sm:p-8 ${featured ? "border-primary bg-card shadow-[var(--shadow-glow)]" : "border-border bg-card"}`}
     >
       {featured && (
         <div className="absolute -top-3 left-6 flex gap-2">
@@ -388,18 +413,19 @@ export function PlanCard({
       </div>
       <div className="mt-1 text-sm text-muted-foreground">{tagline}</div>
       <div className="mt-7 border-t border-border pt-6">
-      <ul className="space-y-3 text-sm">
-        {features.map((f) => (
-          <li key={f} className="flex items-start gap-2">
-            <CheckCircle2 className="h-4 w-4 text-primary shrink-0 mt-0.5" /> <span className="font-semibold">{f}</span>
-          </li>
-        ))}
-        {notIncludedFeatures?.map((f) => (
-          <li key={f} className="flex items-start gap-2 text-muted-foreground opacity-70">
-            <XCircle className="h-4 w-4 shrink-0 mt-0.5" /> {f}
-          </li>
-        ))}
-      </ul>
+        <ul className="space-y-3 text-sm">
+          {features.map((f) => (
+            <li key={f} className="flex items-start gap-2">
+              <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+              <span className="font-semibold">{f}</span>
+            </li>
+          ))}
+          {notIncludedFeatures?.map((f) => (
+            <li key={f} className="flex items-start gap-2 text-muted-foreground opacity-70">
+              {f}
+            </li>
+          ))}
+        </ul>
       </div>
       <div className="mt-auto pt-6">
         <RequestAccessModal triggerLabel={ctaText ?? "Subscribe A Plan"} />
@@ -419,9 +445,7 @@ export function SectionHeader({
 }) {
   return (
     <div className="mx-auto max-w-2xl text-center">
-      {eyebrow && (
-        <div className="section-kicker">{eyebrow}</div>
-      )}
+      {eyebrow && <div className="section-kicker">{eyebrow}</div>}
       <h2 className="mt-4 text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
       {subtitle && <div className="mt-4 text-muted-foreground">{subtitle}</div>}
     </div>

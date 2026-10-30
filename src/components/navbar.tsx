@@ -1,106 +1,96 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { Menu, X, ArrowUpRight, ShieldCheck } from "lucide-react";
 import { useState } from "react";
-import { useTheme } from "./theme-provider";
 import { RequestAccessModal } from "./request-access-modal";
-import { Button } from "@/components/ui/button";
 
 const links = [
-  { to: "/", label: "Home" },
-  { to: "/features", label: "Features" },
+  { to: "/features", label: "Platform" },
+  { to: "/features", label: "Solutions" },
+  { to: "/features", label: "Resources" },
   { to: "/pricing", label: "Pricing" },
-  { to: "/contact", label: "Contact" },
 ];
 
 export function Navbar() {
-  const { theme } = useTheme();
   const [open, setOpen] = useState(false);
   const path = useRouterState({ select: (s) => s.location.pathname });
-  const logoSrc = theme === "dark" ? "/assets/logo-dark.png" : "/assets/logo-light.png";
 
   return (
-    <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
-      <div className="mx-auto max-w-[1280px] rounded-[18px] border border-border bg-blue-50 dark:bg-blue-950/40 shadow-[0_14px_36px_-22px_color-mix(in_oklab,var(--foreground)_38%,transparent)]">
-        <div className="flex h-16 items-center justify-between gap-2 px-4 sm:px-5 lg:px-6">
+    <header className="sticky top-0 z-50 border-b border-[#e5e8e2]/90 bg-[#fbfaf7]/90 backdrop-blur-xl">
+      <div className="container-page">
+        <div className="flex h-[76px] items-center justify-between gap-5">
           <Link
             to="/"
             aria-label="Dverif home"
-            className="flex items-center transition-opacity hover:opacity-80"
+            className="inline-flex items-center gap-2.5 transition-opacity hover:opacity-80"
           >
-            <img
-              key={theme}
-              src={logoSrc}
-              alt="Dverif - Secure Document Verification Platform Logo"
-              className="h-9 w-auto object-contain sm:h-10 animate-fade-in"
-              loading="eager"
-              decoding="async"
-              width="120"
-              height="40"
-            />
+            <span className="grid h-9 w-9 place-items-center rounded-[11px] bg-[#2f9479] text-white shadow-[0_8px_18px_-9px_#2f9479]">
+              <ShieldCheck className="h-5 w-5" strokeWidth={2.3} />
+            </span>
+            <span className="text-[1.45rem] font-semibold tracking-[-0.055em] text-[#102640]">
+              DVerif
+            </span>
           </Link>
 
-          <nav className="hidden items-center gap-1.5 md:flex" aria-label="Primary navigation">
-            {links.map((l) => (
+          <nav className="hidden items-center gap-1 md:flex" aria-label="Primary navigation">
+            {links.map((link) => (
               <Link
-                key={l.to}
-                to={l.to}
-                className={`relative rounded-lg px-4 py-2 text-sm font-medium transition-all duration-400 lg:px-5 after:absolute after:inset-x-3 after:bottom-1 after:h-0.5 after:origin-left after:rounded-full after:bg-primary after:transition-transform after:duration-300 ${
-                  path === l.to
-                    ? "text-primary after:scale-x-100"
-                    : "text-muted-foreground after:scale-x-0 hover:text-foreground hover:after:scale-x-100"
-                }`}
+                key={link.label}
+                to={link.to}
+                className={`rounded-lg px-4 py-2 text-sm transition-colors hover:text-[#2f9479] ${path === link.to ? "font-semibold text-[#2f9479]" : "text-[#5d6873]"}`}
               >
-                {l.label}
+                {link.label}
               </Link>
             ))}
           </nav>
 
-          <div className="flex shrink-0 items-center gap-2">
-            <div className="hidden md:block">
-              <RequestAccessModal>
-                <Button className="h-10 rounded-xl px-4 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.02] hover:brightness-95">
-                  Request A Meeting
-                </Button>
-              </RequestAccessModal>
-            </div>
-            <Button
-              variant="ghost"
-              size="icon"
-              className="h-10 w-10 rounded-xl border border-border bg-card/80 transition-all duration-300 hover:bg-accent md:hidden"
-              onClick={() => setOpen((v) => !v)}
+          <div className="flex items-center gap-3">
+            <a
+              href="/login"
+              className="hidden px-2 py-2 text-sm font-medium text-[#344856] transition-colors hover:text-[#2f9479] sm:block"
+            >
+              Sign in
+            </a>
+            <RequestAccessModal>
+              <button className="hidden h-10 items-center gap-2 rounded-[9px] bg-[#142d48] px-4 text-sm font-semibold text-white transition-transform hover:-translate-y-0.5 sm:inline-flex">
+                Get started <ArrowUpRight className="h-4 w-4" />
+              </button>
+            </RequestAccessModal>
+            <button
+              className="grid h-10 w-10 place-items-center rounded-xl border border-[#dce4df] bg-white/70 text-[#19344d] md:hidden"
+              onClick={() => setOpen((value) => !value)}
               aria-label={open ? "Close menu" : "Open menu"}
               aria-expanded={open}
-              aria-controls="mobile-nav"
             >
               {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-            </Button>
+            </button>
           </div>
         </div>
-
         {open && (
-          <div
-            id="mobile-nav"
-            className="space-y-1 rounded-b-[18px] border-t border-border/60 bg-background/95 px-4 pb-3 pt-3 backdrop-blur-xl md:hidden"
-          >
-            {links.map((l) => (
-              <Link
-                key={l.to}
-                to={l.to}
-                onClick={() => setOpen(false)}
-                className={`block rounded-xl px-3 py-2.5 text-sm font-medium transition-colors duration-300 ${
-                  path === l.to ? "bg-primary/10 text-primary" : "text-foreground hover:bg-accent"
-                }`}
-              >
-                {l.label}
-              </Link>
-            ))}
-            <div className="border-t border-border/60 pt-3">
-              <RequestAccessModal>
-                <Button className="h-10 w-full rounded-xl transition-all duration-300 hover:brightness-95">
-                  Request A Meeting
-                </Button>
-              </RequestAccessModal>
-            </div>
+          <div className="space-y-1 border-t border-[#e5e8e2] py-3 md:hidden">
+            <nav className="grid gap-1">
+              {links.map((link) => (
+                <Link
+                  key={link.label}
+                  to={link.to}
+                  onClick={() => setOpen(false)}
+                  className="rounded-xl px-3 py-2.5 text-sm text-[#344856] hover:bg-[#eaf4ed]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </nav>
+            <a
+              href="/login"
+              onClick={() => setOpen(false)}
+              className="mt-2 block rounded-xl px-3 py-2.5 text-sm text-[#344856] hover:bg-[#eaf4ed]"
+            >
+              Sign in
+            </a>
+            <RequestAccessModal>
+              <button className="mt-2 inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl bg-[#142d48] text-sm font-semibold text-white">
+                Get started <ArrowUpRight className="h-4 w-4" />
+              </button>
+            </RequestAccessModal>
           </div>
         )}
       </div>
